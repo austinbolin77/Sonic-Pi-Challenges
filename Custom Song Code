@@ -1,5 +1,71 @@
 # Welcome to Sonic Pi
-define :orange4 do
+use_synth:piano
+use_bpm 129
+
+live_loop :orange1 do
+  6.times do
+    play :g4, amp: 0.25
+    play :bb4
+    play :f5, amp: 0.25
+    sleep 0.5
+    play :g5
+    sleep 0.5
+    play :f5
+    sleep 0.5
+    play :g5, sustain: 3
+    play :c4, sustain: 3
+    play :ab4, sustain: 3
+    sleep 2.5
+  end
+  stop
+end
+
+sleep 4
+
+live_loop :orange2 do
+  6.times do
+    play :eb5
+    play :bb4
+    play :g4
+    sleep 0.5
+    play:f5
+    sleep 0.5
+    play:e5
+    sleep 0.5
+    play:f5, sustain: 3
+    play :d5, sustain: 3
+    play :a4, sustain: 3
+    sleep 2.5
+  end
+  stop
+end
+
+sleep 4
+
+live_loop :orange3 do
+  6.times do
+    sleep 0.5
+    play :c5
+    sleep 0.5
+    play :a4
+    sleep 0.5
+    play :bb4
+    sleep 0.5
+    play :c5
+    sleep 0.5
+    play :a4, amp: 2
+    sleep 0.5
+    play :bb4
+    sleep 0.5
+    play :c5
+    sleep 0.5
+  end
+  stop
+end
+
+sleep 4
+
+live_loop :orange4 do
   play :d5
   sleep 0.5
   play :bb4, amp: 2
@@ -11,58 +77,5 @@ define :orange4 do
   stop
 end
 
-hiro = sample "C:/Users/austin_bolin/Documents/Audacity/hiroshima.wav"
-hiro
-sleep 27
-
-use_synth:piano
-use_bpm 129
-
-live_loop :orange do
-  play :g4, amp: 0.25
-  play :bb4
-  play :f5, amp: 0.25
-  sleep 0.5
-  play :g5
-  sleep 0.5
-  play :f5
-  sleep 0.5
-  play :g5, sustain: 3
-  play :c4, sustain: 3
-  play :ab4, sustain: 3
-  sleep 2.5
-  
-  play :eb5
-  play :bb4
-  play :g4
-  sleep 0.5
-  play:f5
-  sleep 0.5
-  play:e5
-  sleep 0.5
-  play:f5, sustain: 3
-  play :d5, sustain: 3
-  play :a4, sustain: 3
-  sleep 2.5
-  
-  sleep 0.5
-  play :c5
-  sleep 0.5
-  play :a4
-  sleep 0.5
-  play :bb4
-  sleep 0.5
-  play :c5
-  sleep 0.5
-  play :a4, amp: 2
-  sleep 0.5
-  play :bb4
-  sleep 0.5
-  play :c5
-  sleep 0.5
-  stop
-end
-orange4
-
-sleep 17
-sample :vinyl_backspin
+sleep 20
+sample :vinyl_rewind
