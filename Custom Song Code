@@ -1,6 +1,10 @@
-# Welcome to Sonic Pi
 use_synth:piano
 use_bpm 129
+
+hiro = sample "C:/Users/austin_bolin/Documents/Audacity/hiroshima.wav"
+hiro
+sleep 27
+
 
 live_loop :orange1 do
   6.times do
