@@ -1,10 +1,22 @@
-use_synth:piano
-use_bpm 129
+# Welcome to Sonic Pi
+define :orange4 do
+  play :d5
+  sleep 0.5
+  play :bb4, amp: 2
+  sleep 0.5
+  play :g4
+  sleep 0.5
+  play :c4, sustain: 3
+  sleep 2.5
+  stop
+end
 
 hiro = sample "C:/Users/austin_bolin/Documents/Audacity/hiroshima.wav"
 hiro
 sleep 27
 
+use_synth:piano
+use_bpm 129
 
 live_loop :orange1 do
   6.times do
@@ -47,19 +59,25 @@ end
 sleep 4
 
 live_loop :orange3 do
+  define :changeAmp do |my_amp|
+    
+    amp:my_amp
+    sleep 0.5
+  end
+  
   6.times do
     sleep 0.5
-    play :c5
+    play :c5, changeAmp, 2
     sleep 0.5
-    play :a4
+    play :a4, changeAmp, 6
     sleep 0.5
-    play :bb4
+    play :bb4, changeAmp, 3
     sleep 0.5
-    play :c5
+    play :c5, changeAmp, 5.5
     sleep 0.5
     play :a4, amp: 2
     sleep 0.5
-    play :bb4
+    play :bb4, changeAmp, 1
     sleep 0.5
     play :c5
     sleep 0.5
@@ -69,17 +87,14 @@ end
 
 sleep 4
 
-live_loop :orange4 do
-  play :d5
-  sleep 0.5
-  play :bb4, amp: 2
-  sleep 0.5
-  play :g4
-  sleep 0.5
-  play :c4, sustain: 3
-  sleep 2.5
-  stop
-end
+orange4
 
-sleep 20
-sample :vinyl_rewind
+sleep 12
+
+num = 1
+4.times do
+  sample :vinyl_rewind
+  amp(num)
+  sleep 4
+  num = num - 0.25
+end
