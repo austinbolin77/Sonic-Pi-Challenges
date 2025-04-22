@@ -11,12 +11,12 @@ define :orange4 do
   stop
 end
 
+use_synth:piano
+use_bpm 129
+
 hiro = sample "C:/Users/austin_bolin/Documents/Audacity/hiroshima.wav"
 hiro
 sleep 27
-
-use_synth:piano
-use_bpm 129
 
 live_loop :orange1 do
   6.times do
@@ -58,26 +58,25 @@ end
 
 sleep 4
 
+define :changeamp do |note, my_amp|
+  play note, amp: my_amp
+end
+
+
 live_loop :orange3 do
-  define :changeAmp do |my_amp|
-    
-    amp:my_amp
-    sleep 0.5
-  end
-  
   6.times do
     sleep 0.5
-    play :c5, changeAmp, 2
+    changeamp :c5, 2
     sleep 0.5
-    play :a4, changeAmp, 6
+    changeamp :a4, 6
     sleep 0.5
-    play :bb4, changeAmp, 3
+    changeamp :bb4, 3
     sleep 0.5
-    play :c5, changeAmp, 5.5
+    changeamp :c5, 5.5
     sleep 0.5
     play :a4, amp: 2
     sleep 0.5
-    play :bb4, changeAmp, 1
+    changeamp :bb4, 1
     sleep 0.5
     play :c5
     sleep 0.5
@@ -93,8 +92,7 @@ sleep 12
 
 num = 1
 4.times do
-  sample :vinyl_rewind
-  amp(num)
+  sample :vinyl_rewind, amp: num
   sleep 4
   num = num - 0.25
 end
