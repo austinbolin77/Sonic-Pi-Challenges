@@ -1,74 +1,132 @@
-# Welcome to Sonic Pi
-
-
 use_bpm 105
 use_synth :piano
 
-play :e3
-sleep 0.5
-play :e3
-sleep 0.5
-play :e3
-sleep 0.5
-play :d3
-sleep 0.5
-
-play :d3
-sleep 1
-
-play :g2
-sleep 0.5
-play :g2
-sleep 0.5
-play :g2
-sleep 0.5
-play :c3
-sleep 0.5
+define :function1 do
+  dfl = sample "C:/Users/austin_bolin/Documents/Audacity/DFL.wav"
+  
+  dfl
+end
 
 
-play :b2
-sleep 0.5
+define :notes do |notes1, s|
+  play notes1
+  sleep s
+end
 
-play :d3
-sleep 0.5
-play :d3
-sleep 0.5
-play :d3
-sleep 0.5
-play :c3
-sleep 0.5
+live_loop :lh1 do
+  4.times do
+    notes :eb3, 1.5
+    notes :eb3, 1
+    notes :eb3, 1
+    notes :d3, 0.5
+    sleep 0.5
+    
+    notes :d3, 1
+    play :cb4, sustain: 3
+    sleep 3
+    
+    
+    notes :g2, 1.5
+    notes :g2, 0.5
+    sleep 0.5
+    notes :g2, 1
+    notes :cb3, 0.5
+    sleep 0.5
+  end
+  stop
+end
 
-play :c3
-sleep 1
-play :a2
-sleep 1
+sleep 4
 
-play :g2
-sleep 0.5
-play :g2
-sleep 0.5
-play :g2
-sleep 0.5
-play :b2
-sleep 0.5
+dfl
 
-play :b2
-sleep 1
-play :e2
-sleep 1
+sleep 4
 
-play :e3
-sleep 0.5
-play :e3
-sleep 0.5
-play :e3
-sleep 0.5
-play :c3
-sleep 0.5
+live_loop :lh2 do
+  4.times do
+    notes :b2, 1
+    sleep 3
+    
+    notes :db3, 1
+    sleep 0.5
+    notes :db3, 0.5
+    sleep 0.5
+    notes :db3, 0.5
+    sleep 0.5
+    notes :cb3, 0.5
+    
+    notes :cb3, 1
+    play :cb4, sustain: 3
+    sleep 1
+    notes :a2, 1
+    sleep 1
+  end
+  stop
+end
 
-play :c3
-sleep 1
+sleep 4
 
-love = sample "C:/Users/austin_bolin/Documents/Audacity/LandH.wav"
+dfl
 
-love
+sleep 4
+
+live_loop :lh3 do
+  4.times do
+    notes :g2, 1
+    sleep 0.5
+    notes :g2, 0.5
+    sleep 0.5
+    notes :g2, 0.5
+    sleep 0.5
+    notes :b2, 0.5
+    
+    notes :b2, 1
+    sleep 1
+    notes :e2, 1
+    sleep 1
+    
+    notes :e3, 1
+    sleep 0.5
+    notes :e3, 0.5
+    sleep 0.5
+    notes :e3, 0.5
+    sleep 0.5
+    notes :c3, 0.5
+  end
+  stop
+end
+
+sleep 4
+
+dfl
+
+sleep 4
+
+live_loop :lh4 do
+  4.times do
+    notes :cb3, 1
+    play :cb4, sustain: 3
+    sleep 3
+    
+    notes :g2, 1
+    sleep 0.5
+    notes :g2, 0.5
+    sleep 0.5
+    notes :g2, 0.5
+    sleep 0.5
+    notes :b2, 0.5
+    
+    notes :g2, 1
+    sleep 3
+  end
+  stop
+end
+
+sleep 45
+
+num = 1
+4.times do
+  sample :ambi_drone, amp: num
+  sleep 4
+  num = num - 0.25
+end
