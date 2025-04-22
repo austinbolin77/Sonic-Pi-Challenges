@@ -137,10 +137,6 @@ end
 
 sleep 4
 
-dfl
-
-sleep 4
-
 live_loop :lh2 do
   4.times do
     notes :b2, 1
@@ -162,10 +158,6 @@ live_loop :lh2 do
   end
   stop
 end
-
-sleep 4
-
-dfl
 
 sleep 4
 
@@ -194,10 +186,6 @@ live_loop :lh3 do
   end
   stop
 end
-
-sleep 4
-
-dfl
 
 sleep 4
 
